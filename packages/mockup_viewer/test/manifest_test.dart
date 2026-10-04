@@ -8,7 +8,7 @@ void main() {
 {
   "title": "Demo · Mockups",
   "flows": [
-    {"id": "auth", "title": "Cuenta", "src": "auth.html", "spec": "../specs/auth.md"},
+    {"id": "auth", "title": "Cuenta", "src": "auth.html", "spec": "specs/auth.md"},
     {"id": "home", "title": "Inicio", "src": "home.html"}
   ],
   "web": [{"title": "Dashboard", "src": "web.html"}],
@@ -18,7 +18,7 @@ void main() {
 ''');
       expect(m.title, 'Demo · Mockups');
       expect(m.flows.map((f) => f.id), ['auth', 'home']);
-      expect(m.flows.first.spec, '../specs/auth.md');
+      expect(m.flows.first.spec, 'specs/auth.md');
       expect(m.flows.last.spec, isNull);
       expect(m.web.single.href, 'web.html');
       expect(m.links.single.href, 'https://figma.com/x');

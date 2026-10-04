@@ -13,7 +13,8 @@ class Flow {
   /// The HTML file, relative to the mockups directory.
   final String src;
 
-  /// Optional relative URL to the written spec of this flow.
+  /// Optional URL of the written spec, resolved against the viewer page.
+  /// A relative one must stay inside the mockups directory.
   final String? spec;
 }
 
@@ -30,7 +31,7 @@ class Link {
 /// ```json
 /// {
 ///   "title": "My app · Mockups",
-///   "flows": [{"id": "auth", "title": "Sign in", "src": "auth.html", "spec": "../specs/auth.md"}],
+///   "flows": [{"id": "auth", "title": "Sign in", "src": "auth.html", "spec": "specs/auth.md"}],
 ///   "web": [{"title": "Dashboard", "src": "web-dashboard.html"}],
 ///   "links": [{"title": "Figma", "href": "https://..."}],
 ///   "pdf": "review.pdf"

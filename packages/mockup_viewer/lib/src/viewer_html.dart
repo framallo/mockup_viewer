@@ -9,6 +9,9 @@ const String viewerHtml = r'''
 <style>
 :root{--ink:#1A1B25;--ink2:#6E7087;--bg:#ececed;--pri:#5457CD;--lateral:264px;}
 *{box-sizing:border-box}
+/* The author rules below set display on links and buttons; keep the hidden
+   attribute winning (PDF link, Web heading, help rows). */
+[hidden]{display:none!important}
 body{margin:0;font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,sans-serif;color:var(--ink);background:var(--bg);overflow:hidden;height:100vh}
 
 /* One screen at a time, full height: the phone of the current step starts at

@@ -58,7 +58,7 @@ link from it.
 {
   "title": "CazaFacturas · Mockups",
   "flows": [
-    { "id": "auth", "title": "Cuenta (entrar)", "src": "redesign-auth.html", "spec": "../specs/auth.md" },
+    { "id": "auth", "title": "Cuenta (entrar)", "src": "redesign-auth.html", "spec": "specs/auth.md" },
     { "id": "onboarding", "title": "Onboarding", "src": "redesign-onboarding.html" }
   ],
   "web": [
@@ -78,10 +78,15 @@ link from it.
 | `flows[].id` | yes | Letters, digits, `_`, `-`. Used in the URL hash (`#auth/2`) and in `data-ir="auth/2"` jumps. |
 | `flows[].title` | yes | Shown in the menu. Comment headings are `<title>` and `<title> · p/n`. |
 | `flows[].src` | yes | The HTML file, relative to the mockups directory. |
-| `flows[].spec` | no | A relative URL to the written spec (for example `../specs/auth.md`). Shows a small "Spec" link beside the flow, in the sidebar and in the mobile menu. Opens in a new tab. Markdown is served as plain text. |
+| `flows[].spec` | no | The written spec. Shows a small "Spec" link beside the flow, in the sidebar and in the mobile menu. Opens in a new tab. Markdown is served as plain text. |
 | `web[]` | no | Desktop pages: `{ "title", "src" }`. Listed under "Web", open in a new tab. |
 | `links[]` | no | Plain links: `{ "title", "href" }`. Listed under "Web" after the pages. |
 | `pdf` | no | A PDF for download. The link and the `D` shortcut are hidden when absent. |
+
+`src`, `spec`, `href` and `pdf` are URLs resolved against the viewer page
+(`/mockups/` or `/`). A relative one must point inside the mockups
+directory (`specs/auth.md`, not `../specs/auth.md`: the static route does
+not serve files outside it). Anything else needs an absolute URL.
 
 The viewer needs an HTTP server: it fetches `mockups.json` and the comments,
 so opening `index.html` as a file does not work.
