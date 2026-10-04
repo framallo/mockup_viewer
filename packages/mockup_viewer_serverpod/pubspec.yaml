@@ -1,0 +1,21 @@
+name: mockup_viewer_serverpod
+description: Mounts the mockup_viewer (phone viewer plus comment box) on a Serverpod web server.
+version: 0.1.0
+repository: https://github.com/framallo/mockup_viewer
+publish_to: none
+
+environment:
+  sdk: ^3.12.2
+
+resolution: workspace
+
+dependencies:
+  serverpod: ^4.0.3
+  mockup_viewer:
+    git:
+      url: https://github.com/framallo/mockup_viewer.git
+      path: packages/mockup_viewer
+
+dev_dependencies:
+  lints: ^6.0.0
+  test: ^1.25.0

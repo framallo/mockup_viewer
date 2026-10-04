@@ -1,0 +1,10 @@
+name: mockup_viewer_workspace
+publish_to: none
+
+environment:
+  sdk: ^3.12.0
+
+workspace:
+  - packages/mockup_viewer
+  - packages/mockup_viewer_serverpod
+
