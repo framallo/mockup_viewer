@@ -80,7 +80,15 @@ Future<void> main(List<String> args) async {
   final handler = const shelf.Pipeline()
       .addMiddleware(shelf.logRequests())
       .addHandler(mockupHandler(site));
-  final server = await io.serve(handler, opts['host'] as String, port);
+  final HttpServer server;
+  try {
+    server = await io.serve(handler, opts['host'] as String, port);
+  } on SocketException catch (e) {
+    stderr.writeln(
+      'cannot listen on ${opts['host']}:$port: ${e.osError?.message ?? e.message}',
+    );
+    exit(69);
+  }
   final url = 'http://${server.address.host}:${server.port}/';
   stdout.writeln('mockups: ${mockups.path}');
   stdout.writeln('comments: ${comments.path}');
