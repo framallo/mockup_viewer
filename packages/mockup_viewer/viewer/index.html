@@ -59,6 +59,9 @@ body{margin:0;font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,sa
   /* The box lives inside the sidebar: static, always open. The double
      selector beats the base position:fixed rule, which comes later. */
   #coment-lateral #coment{position:static;display:block;width:auto;box-shadow:none;border:1px solid #ededf3;margin-top:8px}
+  /* Keep the flow list visible: a short comment box and a capped Web group on desktop. */
+  #coment-lateral #coment textarea{min-height:96px}
+  #lateral .grupo-web{max-height:34vh;overflow-y:auto}
 }
 
 /* The three floating buttons (on desktop two remain: the menu lives in the
