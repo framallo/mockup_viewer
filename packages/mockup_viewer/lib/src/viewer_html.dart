@@ -312,7 +312,9 @@ body{margin:0;font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,sa
           // The phone measures the window and the content scrolls INSIDE,
           // like a real app: the column fills the frame and its scroll areas
           // scroll again (the CTA and the bars stay fixed).
-          ".frame>div:first-child{height:100%!important;min-height:0!important}" +
+          // A kit's first child can be its status bar (.sbar): stretched to
+          // the full height it pushed the screen out of an empty frame.
+          ".frame>div:first-child:not(.sbar){height:100%!important;min-height:0!important}" +
           '[class*="overflow-y-auto"]:not([class*="overflow-x-auto"]),.frame-scroll:not([class*="overflow-x-auto"]),.scroll{overflow-y:auto!important;height:100%!important}' +
           // Form error states: off until the menu turns them on
           // (body.mostrar-errores).
